@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #11100e;
+  --color-ink-2: #191714;
+  --color-ink-3: #24211c;
+  --color-line: #2f2b25;
+  --color-paper: #ede7dc;
+  --color-muted: #a59d8f;
+  --color-faint: #8a8274;
+  --color-wax: #e0573c;
+  --color-wax-hi: #f2765f;
+  --color-ok: #a3c9a0;
+  --color-warn: #e6b86e;
+  --color-bad: #f2928a;
+  --font-serif: var(--font-instrument), Georgia, serif;
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+:root { color-scheme: dark; background: var(--color-ink); }
+html { scroll-behavior: smooth; }
+body { min-height: 100vh; background: var(--color-ink); color: var(--color-paper); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+@layer base { button, input { font: inherit; } }
+::selection { background: color-mix(in srgb, var(--color-wax) 40%, transparent); }
+:focus-visible { outline: 2px solid var(--color-wax-hi); outline-offset: 2px; }
+.tabular { font-variant-numeric: tabular-nums; }
+
+@keyframes ds-tick { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+@keyframes ds-sweep { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.ds-live { animation: ds-tick 2s ease-in-out infinite; }
+.ds-sweep { transform-origin: left; animation: ds-sweep 1.2s cubic-bezier(.2,.7,.2,1) both; }
+@media (prefers-reduced-motion: reduce) { .ds-live, .ds-sweep { animation: none; } html { scroll-behavior: auto; } }

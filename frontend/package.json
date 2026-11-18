@@ -1,0 +1,52 @@
+{
+  "name": "darkswap-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "local:config": "tsx scripts/local-config.ts",
+    "local:demo": "tsx scripts/local-demo.ts"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.104.3",
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "viem": "2.57.7",
+    "wagmi": "3.7.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.3",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "22.19.1",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "5.2.0",
+    "eslint": "10.13.0",
+    "fake-indexeddb": "6.2.6",
+    "jsdom": "30.1.3",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vite": "7.3.7",
+    "vitest": "5.0.5",
+    "tsx": "4.20.6",
+    "@eslint/js": "10.0.1",
+    "@typescript-eslint/eslint-plugin": "8.71.2",
+    "@typescript-eslint/parser": "8.71.2",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "globals": "17.13.0",
+    "@testing-library/dom": "10.4.2"
+  },
+  "overrides": {
+    "braces": "^3.0.3",
+    "ws": "^8.22.0",
+    "decode-uri-component": "^0.5.0"
+  }
+}

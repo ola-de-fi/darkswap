@@ -1,0 +1,14 @@
+{
+  "auction": "0xff64a631EE9464575a20d79dB53Bd334B0B1f640",
+  "chainId": 4663,
+  "deploymentBlock": 90745951,
+  "keeper": "0x3E8126e04a13335f9e4E5386841Ab097555dB91A",
+  "maxOracleAge": 90000,
+  "minUsdcIn": 1000000,
+  "minWethIn": 1000000000000000,
+  "oracle": "0x02aEf90E780f6BA62Ba972f91ee47854558d225F",
+  "owner": "0xd88672FE10159931D85AAf1E733eccc630F7B504",
+  "requirePostRevealPrice": false,
+  "usdc": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+  "weth": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73"
+}

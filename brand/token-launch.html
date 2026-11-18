@@ -1,0 +1,40 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=block" rel="stylesheet">
+<style>
+:root{--ink:#11100e;--line:#24211c;--paper:#ede7dc;--muted:#a59d8f;--wax:#e0573c;--wax-hi:#f2765f}
+html,body{margin:0;background:var(--ink);overflow:hidden}
+.c{position:relative;width:var(--w);height:var(--h);overflow:hidden;background:var(--ink)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:calc(var(--w)/12) 100%;opacity:.45}
+.ring{position:absolute;border-radius:50%;border:1px solid #2f2b25}
+.seal{position:absolute}
+.kick{font-family:'IBM Plex Mono',monospace;color:var(--wax);letter-spacing:6px;text-transform:lowercase}
+.tick{font-family:'Instrument Serif',Georgia,serif;color:var(--paper);line-height:.86;letter-spacing:-3px;margin:0}
+.tick span{color:var(--wax-hi)}
+.sub{font-family:'Instrument Serif',Georgia,serif;color:var(--paper);margin:0}
+.sub em{color:var(--wax-hi)}
+.meta{font-family:'IBM Plex Mono',monospace;color:var(--muted);letter-spacing:1px}
+.meta b{color:var(--wax);font-weight:500}
+.bar{display:flex;gap:12px}.bar i{flex:1;height:4px;background:#2f2b25}.bar i.on{background:var(--wax)}
+.url{font-family:'IBM Plex Mono',monospace;color:var(--paper)}
+</style></head><body>
+<div class="c" id="art"></div>
+<script>
+const p=new URLSearchParams(location.search),sq=p.get('f')==='sq';
+const W=sq?1080:1600,H=sq?1080:900;const c=document.getElementById('art');
+c.style.setProperty('--w',W+'px');c.style.setProperty('--h',H+'px');document.body.style.width=W+'px';document.body.style.height=H+'px';
+const mark=`<svg viewBox="0 0 64 64" width="100%" height="100%"><path d="M12 8h20a24 24 0 0 1 0 48H12Z" fill="#ede7dc"/><path d="M31 19.5a7 7 0 0 1 3.6 13l1.9 11H25.5l1.9-11A7 7 0 0 1 31 19.5Z" fill="#11100e"/><circle cx="31" cy="26.5" r="2.4" fill="#e0573c"/></svg>`;
+const L=sq?{pad:84,kick:22,tick:150,sub:58,meta:22,seal:300,sealX:W-300-60,sealY:96,top:470}:{pad:110,kick:22,tick:190,sub:64,meta:22,seal:420,sealX:W-420-110,sealY:150,top:250};
+c.innerHTML=`<div class="grid"></div>
+<div class="ring" style="width:${L.seal*1.9}px;height:${L.seal*1.9}px;left:${L.sealX-L.seal*.45}px;top:${L.sealY-L.seal*.45}px"></div>
+<div class="ring" style="width:${L.seal*1.45}px;height:${L.seal*1.45}px;left:${L.sealX-L.seal*.225}px;top:${L.sealY-L.seal*.225}px;border-color:#3a342c"></div>
+<div class="seal" style="width:${L.seal}px;height:${L.seal}px;left:${L.sealX}px;top:${L.sealY}px">${mark}</div>
+<div style="position:absolute;left:${L.pad}px;top:${sq?L.pad:L.pad}px" class="kick" ><span style="font-size:${L.kick}px">now live · robinhood chain</span></div>
+<div style="position:absolute;left:${L.pad}px;top:${L.top}px;right:${L.pad}px">
+<h1 class="tick" style="font-size:${L.tick}px">$DARK<span>SWAP</span></h1>
+<p class="sub" style="font-size:${L.sub}px;margin-top:${sq?26:30}px">The <em>dark pool</em> token.</p>
+<p class="meta" style="font-size:${L.meta}px;margin-top:${sq?30:34}px">sealed orders <b>·</b> one clearing price <b>·</b> 60s batches</p>
+</div>
+<div style="position:absolute;left:${L.pad}px;right:${L.pad}px;bottom:${L.pad}px;display:flex;align-items:center;gap:40px">
+<div class="bar" style="flex:1"><i class="on"></i><i></i><i></i><i></i></div>
+<div class="url" style="font-size:${L.meta+2}px">usedarkswap.xyz &nbsp;<span style="color:#a59d8f">@darkswapxyz</span></div></div>`;
+</script></body></html>
